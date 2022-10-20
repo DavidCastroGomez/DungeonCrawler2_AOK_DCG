@@ -1,6 +1,8 @@
 #include "WorldMap.h"
+#include "Collisions.h"
 
 int main() {
+
 	WorldMap* worldMap = new WorldMap();
 
 	Map* map0 = new Map();
@@ -15,7 +17,7 @@ int main() {
 
 	worldMap->AddMap(map4, 1, 1);
 
-	/*worldMap->AddMap(map0, 0, 0);
+	/*worldMap->AddMap(map0, 0, 0); 
 	worldMap.AddMap(map1, 0, 1);
 	worldMap.AddMap(map2, 0, 2);
 	worldMap.AddMap(map3, 1, 0);
@@ -25,6 +27,6 @@ int main() {
 	worldMap.AddMap(map7, 2, 1);
 	worldMap.AddMap(map8, 2, 2);*/
 
-
+	Collisions::SetMap(worldMap->GetMap());
 	worldMap->InitialDraw();
 }

@@ -37,19 +37,19 @@ void WorldMap::CreatePortals(Map* m)
 
 	//IZQUIERDA
 	if (currentMapX != 0) {
-		e = m->getSpawn().BuildPortal((MAP_COLS - 1) / 2, 0, -1, 0);
+		e = m->getSpawn().BuildPortal(0, (MAP_ROWS - 1) / 2, -1, 0);
 		m->InsertToGrid(e);
 	}
-
+	
 	//DERECHA
 	if (currentMapX != WORLDMAP_COLS - 1) {
-		e = m->getSpawn().BuildPortal((MAP_COLS - 1) / 2, MAP_ROWS - 1, 1, 0);
+		e = m->getSpawn().BuildPortal((MAP_COLS - 1) , (MAP_ROWS - 1) / 2, 1, 0);
 		m->InsertToGrid(e);
 	}
 
 	//ARRIBA
 	if (currentMapY != 0) {
-		e = m->getSpawn().BuildPortal(0 / 2, MAP_ROWS - 1, 0, 1);
+		e = m->getSpawn().BuildPortal((MAP_COLS - 1) / 2, 0, 0, 1);
 		m->InsertToGrid(e);
 	}
 
@@ -58,6 +58,7 @@ void WorldMap::CreatePortals(Map* m)
 		e = m->getSpawn().BuildPortal((MAP_COLS - 1) / 2, MAP_ROWS - 1, 0 , -1);
 		m->InsertToGrid(e);
 	}
+	
 }
 
 void WorldMap::ChangeMap(Entity*)
@@ -66,4 +67,9 @@ void WorldMap::ChangeMap(Entity*)
 
 void WorldMap::UpdateMap()
 {
+}
+
+Map WorldMap::GetMap()
+{
+	return *maps[currentMapX][currentMapY];
 }

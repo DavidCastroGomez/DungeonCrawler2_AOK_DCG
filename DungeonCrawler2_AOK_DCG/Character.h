@@ -2,6 +2,7 @@
 
 #include "Entity.h"
 #include "ConsoleControl.h"
+#include "Collisions.h"
 
 #include <thread>
 #include <chrono>
@@ -23,6 +24,7 @@ public:
 	void Act();
 	void RecieveDamage(int damage);
 
+	virtual void TryMove() = 0;
 	virtual void Move() = 0;	//Move uses collisions
 	virtual void Attack() = 0;	//Attack uses collisions
 	virtual void Die() = 0;

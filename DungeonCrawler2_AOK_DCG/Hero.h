@@ -10,12 +10,14 @@ class Hero : public Character
 private:
 	//Weapon weapon;
 	int potions;
+	int money;
 	
 	InputManager* inputs;
-	std::thread* InputThread;
+	std::thread* inputThread;
 public:
 	Hero();
 
+	void TryMove() override;
 	void Move() override;
 	void Attack() override;
 	void Die() override;
