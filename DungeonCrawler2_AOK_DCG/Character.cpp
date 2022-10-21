@@ -15,14 +15,17 @@ Character::Character() : Entity()
 
 void Character::Act()
 {
+	//actionMutex->lock();
+	////isTired = true;
+	//actionMutex->unlock();
+	//ConsoleControl::Wait(moveTime);
+	//actionMutex->lock();
+	////isTired = false;
+	//TryMove();
+	//actionMutex->unlock();
 
-	actionMutex->lock();
-	//cansar
-	actionMutex->unlock();
 	ConsoleControl::Wait(moveTime);
-	actionMutex->lock();
-	//descansar
-	actionMutex->unlock();
+	TryMove();
 }
 
 void Character::RecieveDamage(int damage)

@@ -3,7 +3,7 @@ Enemy::Enemy() : Character() {
 	this->damage = ENEMY_DAMAGE;
 }
 
-void Enemy::Move() {
+void Enemy::Move(int direction) {
 
 }
 

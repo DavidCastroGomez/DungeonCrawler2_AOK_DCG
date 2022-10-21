@@ -17,7 +17,7 @@ public:
 
 	void ChangeMap(Entity*);
 	void UpdateMap();
-	Map GetMap();
+	Map* GetMap();
 
 };
 

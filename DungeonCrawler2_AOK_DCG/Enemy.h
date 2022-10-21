@@ -8,7 +8,7 @@ private:
 public:
 	Enemy();
 	
-	void Move() override;
+	void Move(int direction) override;
 	void Attack() override;
 	void Die() override;
 };

@@ -25,7 +25,7 @@ public:
 	void RecieveDamage(int damage);
 
 	virtual void TryMove() = 0;
-	virtual void Move() = 0;	//Move uses collisions
+	virtual void Move(int direction) = 0;	//Move uses collisions
 	virtual void Attack() = 0;	//Attack uses collisions
 	virtual void Die() = 0;
 

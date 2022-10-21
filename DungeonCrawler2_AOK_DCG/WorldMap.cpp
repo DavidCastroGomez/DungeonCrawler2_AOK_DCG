@@ -8,7 +8,29 @@ WorldMap::WorldMap()
 	}
 
 	currentMapX = 1;
-	currentMapY = 1;
+	currentMapY = 1;	
+
+	Map* map0 = new Map();
+	Map* map1 = new Map();
+	Map* map2 = new Map();
+	Map* map3 = new Map();
+	Map* map4 = new Map();
+	Map* map5 = new Map();
+	Map* map6 = new Map();
+	Map* map7 = new Map();
+	Map* map8 = new Map();
+
+	this->AddMap(map4, 1, 1);
+
+	this->AddMap(map0, 0, 0);
+	this->AddMap(map1, 0, 1);
+	this->AddMap(map2, 0, 2);
+	this->AddMap(map3, 1, 0);
+	this->AddMap(map4, 1, 1);
+	this->AddMap(map5, 1, 2);
+	this->AddMap(map6, 2, 0);
+	this->AddMap(map7, 2, 1);
+	this->AddMap(map8, 2, 2);
 }
 
 void WorldMap::AddMap(Map* m, int x, int y)
@@ -69,7 +91,7 @@ void WorldMap::UpdateMap()
 {
 }
 
-Map WorldMap::GetMap()
+Map* WorldMap::GetMap()
 {
-	return *maps[currentMapX][currentMapY];
+	return maps[currentMapX][currentMapY];
 }

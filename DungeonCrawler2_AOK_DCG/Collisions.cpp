@@ -1,32 +1,33 @@
 #include "Collisions.h"
 
+Map* Collisions::map;
 
-void Collisions::SetMap(Map m)
+void Collisions::SetMap(Map* m)
 {
-	map = m;
+	Collisions::map = m;
 }
 
 Entity* Collisions::CheckIfCanMove(int x, int y, int direction)
 {
-	Entity* desiredPosition = map.getEntity(x, y);
+	Entity* desiredPosition = map->getEntity(x, y);
 
 	switch (direction)
 	{
 	case 0:
 	case KB_UP:
-		desiredPosition = map.getEntity(x, y - 1);
+		desiredPosition = map->getEntity(x, y - 1);
 		break;
 	case 1:
 	case KB_RIGHT:
-		desiredPosition = map.getEntity(x + 1, y);
+		desiredPosition = map->getEntity(x + 1, y);
 		break;
 	case 2:
 	case KB_DOWN:
-		desiredPosition = map.getEntity(x, y + 1);
+		desiredPosition = map->getEntity(x, y + 1);
 		break;
 	case 3:
 	case KB_LEFT:
-		desiredPosition = map.getEntity(x - 1, y);
+		desiredPosition = map->getEntity(x - 1, y);
 		break;
 	default:
 		break;
@@ -34,3 +35,20 @@ Entity* Collisions::CheckIfCanMove(int x, int y, int direction)
 
 	return desiredPosition;
 }
+
+void Collisions::MoveCharacter(int lastX, int lastY, int x, int y)
+{
+	//TODO put mutex here
+	Entity* e = map->getEntity(x, y);
+	Entity* floor = map->spawner.BuildFloor(lastX, lastY);
+
+	map->InsertToGrid(floor);
+	map->InsertToGrid(e);
+
+	e->Draw();
+	floor->Draw();
+	//and here
+	
+}
+
+
