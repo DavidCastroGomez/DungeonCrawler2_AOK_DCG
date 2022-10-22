@@ -66,6 +66,12 @@
     <ClInclude Include="dist\json\json.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="SaveGame.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadGame.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp">
@@ -114,6 +120,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="dist\jsoncpp.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveGame.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadGame.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,7 @@
 #pragma once
 #include "Character.h"
 #include "InputManager.h"
+#include "json/json.h"
 //#include "Weapon.h"
 
 class Hero : public Character
@@ -13,6 +14,8 @@ private:
 	InputManager* inputs;
 	std::thread* inputThread;
 public:
+
+	Hero();
 	Hero(int x, int y, int health, int money, int potions);
 
 	void TryMove() override;
@@ -26,8 +29,13 @@ public:
 	int getMoney();
 	int getPotions();
 
+	void setHealth(int i);
+	void setMoney(int i);
+	void setPotions(int i);
+
 	void OpenChest(Entity* e);
 
+	static Hero* Parse(Json::Value jsonValue);
 };
 
 

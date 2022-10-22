@@ -140,8 +140,10 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="LoadGame.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Portal.h" />
+    <ClInclude Include="SaveGame.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="WorldMap.h" />
@@ -157,9 +159,11 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="LoadGame.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="SaveGame.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="WorldMap.cpp" />

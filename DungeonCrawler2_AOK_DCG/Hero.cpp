@@ -2,6 +2,9 @@
 #include "UI.h"
 #include "Chest.h"
 #include "Drop.h"
+Hero::Hero()
+{
+}
 Hero::Hero(int x, int y, int health, int money, int potions) : Character() {
 	this->x = x;
 	this->y = y;
@@ -122,8 +125,42 @@ int Hero::getPotions()
 	return potions;
 }
 
+void Hero::setHealth(int i)
+{
+	this->health = i;
+}
+
+void Hero::setMoney(int i)
+{
+	this->money = i;
+}
+
+void Hero::setPotions(int i)
+{
+	this->potions = i;
+}
+
 void Hero::OpenChest(Entity* e)
 {
 	Chest* c = (Chest*)e;
 	c->OpenChest();
+}
+
+Hero* Hero::Parse(Json::Value jsonValue)
+{
+	Hero* newCharacter = new Hero();
+	try
+	{
+		newCharacter->setPos(jsonValue["x"].asInt(), jsonValue["y"].asInt());
+		newCharacter->setHealth(jsonValue["health"].asInt());
+		newCharacter->setMoney(jsonValue["money"].asInt());
+		newCharacter->setPotions(jsonValue["potions"].asInt());
+
+		return newCharacter;
+	}
+	catch (const std::exception&)
+	{
+		delete newCharacter;
+		return nullptr;
+	}
 }
