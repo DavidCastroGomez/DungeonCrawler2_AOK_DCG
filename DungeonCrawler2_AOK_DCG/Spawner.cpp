@@ -1,6 +1,6 @@
 #include "Spawner.h"
 #include "Enemy.h"
-#include "Drop.cpp"
+#include "Drop.h"
 #include "Chest.h"
 
 Entity* Spawner::BuildWall(int x, int y)

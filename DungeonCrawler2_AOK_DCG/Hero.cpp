@@ -1,6 +1,6 @@
 #include "Hero.h"
 #include "UI.h"
-#include "Chest.cpp"
+#include "Chest.h"
 #include "Drop.h"
 Hero::Hero(int x, int y, int health, int money, int potions) : Character() {
 	this->x = x;

@@ -1,7 +1,8 @@
 #include "WorldMap.h"
 #include "Collisions.h"
 #include "Hero.h"
-#include "UI.cpp"
+#include "UI.h"
+#include <json/json.h>
 
 int main() {
 	bool isPlaying = true;
