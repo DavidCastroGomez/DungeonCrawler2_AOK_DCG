@@ -9,7 +9,7 @@ private:
 	//Weapon weapon;
 	int potions;
 	int money;
-	
+
 	InputManager* inputs;
 	std::thread* inputThread;
 public:
@@ -20,6 +20,14 @@ public:
 	void Attack(Entity* e) override;
 	void Die() override;
 
-	void PickUp();
+	void PickUp(Entity* e);
+
+	int getHealth();
+	int getMoney();
+	int getPotions();
+
+	void OpenChest(Entity* e);
+
 };
+
 

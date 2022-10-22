@@ -1,4 +1,7 @@
 #include "Hero.h"
+#include "UI.h"
+#include "Chest.cpp"
+#include "Drop.h"
 Hero::Hero(int x, int y, int health, int money, int potions) : Character() {
 	this->x = x;
 	this->y = y;
@@ -12,7 +15,7 @@ Hero::Hero(int x, int y, int health, int money, int potions) : Character() {
 	this->potions = potions;
 
 	this->damage = HERO_DAMAGE;
-	
+
 
 	this->inputs = new InputManager();
 	this->inputThread = new std::thread(&InputManager::StartListener, inputs);
@@ -23,23 +26,24 @@ void Hero::TryMove()
 {
 	int keyCode = inputs->LastInput();
 
-	//TODO CHANGE THIS
 	if (keyCode == KB_UP || keyCode == KB_DOWN || keyCode == KB_LEFT || keyCode == KB_RIGHT) {
-		
+
 		Entity* e = Collisions::CheckIfCanMove(x, y, keyCode);
 
 		switch (e->getType()) {
 		case EntityType::WALL:
 			break;
 		case EntityType::DROP:
-			PickUp();
+			PickUp(e);
 		case EntityType::FLOOR:
 			Move(keyCode);
 			break;
 		case EntityType::ENEMY:
-		case EntityType::CHEST:
 			Attack(e);
-			break;	
+			break;
+		case EntityType::CHEST:
+			OpenChest(e);
+			break;
 		case EntityType::PORTAL:
 			//TODO portal call to change map
 			break;
@@ -82,6 +86,44 @@ void Hero::Die() {
 
 }
 
-void Hero::PickUp() {
+void Hero::PickUp(Entity* e) {
+	Drop* drop = (Drop*)e;
 
+	Collisions::RemoveEntity(e->getX(), e->getY());
+
+	switch (drop->getDropType())
+	{
+	case DropType::MONEY:
+		money += drop->getAmount();
+		break;
+	case DropType::POTION:
+		potions += drop->getAmount();
+		break;
+	default:
+		break;
+	}
+
+
+	UI::printUI();
+}
+
+int Hero::getHealth()
+{
+	return health;
+}
+
+int Hero::getMoney()
+{
+	return money;
+}
+
+int Hero::getPotions()
+{
+	return potions;
+}
+
+void Hero::OpenChest(Entity* e)
+{
+	Chest* c = (Chest*)e;
+	c->OpenChest();
 }

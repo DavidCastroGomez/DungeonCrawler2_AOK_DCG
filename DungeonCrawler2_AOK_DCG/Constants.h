@@ -14,3 +14,7 @@
 #define HERO_MOVE_TIME 500
 #define ENEMY_MOVE_TIME 750
 
+#define UI_X 35
+#define UI_Y 2
+
+#define MAP_SPAWN_TIME 500

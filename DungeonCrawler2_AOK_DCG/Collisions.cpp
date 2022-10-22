@@ -62,4 +62,11 @@ void Collisions::RemoveEntity(int x, int y)
 	floor->Draw();	
 }
 
+void Collisions::NewDrop(int x, int y)
+{
+	Entity* drop = map->spawner.SpawnDrop(x, y);
+	map->InsertToGrid(drop);
+	drop->Draw();
+}
+
 

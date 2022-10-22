@@ -1,8 +1,11 @@
 #pragma once
 #include "Entity.h"
 #include "Portal.h"
+
 //#include "Chest.h"
 //#include "Enemy.h"
+
+class Drop;
 
 class Spawner
 {
@@ -15,5 +18,6 @@ public:
 
 	Entity* SpawnEnemy(int x, int y);
 	Entity* SpawnChest(int x, int y);
+	Entity* SpawnDrop(int x, int y);
 };
 

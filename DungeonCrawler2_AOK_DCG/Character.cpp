@@ -3,6 +3,7 @@
 Character::Character() : Entity()
 {
 	this->health = 0;
+	this->damage = 0;
 
 	this->moveTime = 0;
 	this->isTired = false;

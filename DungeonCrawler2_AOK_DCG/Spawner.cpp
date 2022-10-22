@@ -1,5 +1,6 @@
 #include "Spawner.h"
 #include "Enemy.h"
+#include "Drop.cpp"
 
 Entity* Spawner::BuildWall(int x, int y)
 {
@@ -24,4 +25,19 @@ Entity* Spawner::SpawnEnemy(int x, int y)
 Entity* Spawner::SpawnChest(int x, int y)
 {
 	return new Entity();
+}
+
+Entity* Spawner::SpawnDrop(int x, int y)
+{
+	int newDropType = rand() % 3;
+	switch (newDropType)
+	{
+	case 0:
+	case 1:
+		return new Drop(x, y, (rand() % 5) + 1, DropType::MONEY);
+	case 2:
+		return new Drop(x, y, (rand() % 2) + 1, DropType::POTION);
+	default:
+		break;
+	}
 }

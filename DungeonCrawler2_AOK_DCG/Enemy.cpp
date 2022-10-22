@@ -14,9 +14,8 @@ Enemy::Enemy(int x, int y) : Character() {
 
 Enemy::~Enemy()
 {
-	delete actionThread;
-	delete actionMutex;
-	delete this;
+	actionThread->~thread();
+	actionMutex->~mutex();
 }
 
 void Enemy::TryMove()
@@ -34,5 +33,6 @@ void Enemy::Attack(Entity* e) {
 
 void Enemy::Die() {
 	Collisions::RemoveEntity(x, y);
-	//this->~Enemy();
+	Collisions::NewDrop(x, y);
+	this->~Enemy();
 }
