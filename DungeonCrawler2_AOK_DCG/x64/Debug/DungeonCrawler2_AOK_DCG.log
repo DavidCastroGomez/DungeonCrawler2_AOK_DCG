@@ -1,5 +1,36 @@
-﻿  Hero.cpp
+﻿  Character.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Collisions.h(16,2): warning C4091: 'static ': se ha omitido a la izquierda de 'Collisions' cuando no hay ninguna variable declarada
+  Collisions.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Collisions.h(16,2): warning C4091: 'static ': se ha omitido a la izquierda de 'Collisions' cuando no hay ninguna variable declarada
+  ConsoleControl.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+  Enemy.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Collisions.h(16,2): warning C4091: 'static ': se ha omitido a la izquierda de 'Collisions' cuando no hay ninguna variable declarada
+  Entity.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+  Hero.cpp
 C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
 C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Collisions.h(16,2): warning C4091: 'static ': se ha omitido a la izquierda de 'Collisions' cuando no hay ninguna variable declarada
 C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\UI.h(13,2): warning C4091: 'static ': se ha omitido a la izquierda de 'UI' cuando no hay ninguna variable declarada
+  InputManager.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+  main.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Collisions.h(16,2): warning C4091: 'static ': se ha omitido a la izquierda de 'Collisions' cuando no hay ninguna variable declarada
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\UI.h(13,2): warning C4091: 'static ': se ha omitido a la izquierda de 'UI' cuando no hay ninguna variable declarada
+  Map.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Map.cpp(27,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Portal.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+  Spawner.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Collisions.h(16,2): warning C4091: 'static ': se ha omitido a la izquierda de 'Collisions' cuando no hay ninguna variable declarada
+  WorldMap.cpp
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
+  Generando código...
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Spawner.cpp(44): warning C4715: 'Spawner::SpawnDrop': no todas las rutas de acceso de control devuelven un valor
   DungeonCrawler2_AOK_DCG.vcxproj -> C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\x64\Debug\DungeonCrawler2_AOK_DCG.exe

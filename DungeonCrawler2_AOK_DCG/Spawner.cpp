@@ -1,6 +1,7 @@
 #include "Spawner.h"
 #include "Enemy.h"
 #include "Drop.cpp"
+#include "Chest.h"
 
 Entity* Spawner::BuildWall(int x, int y)
 {
@@ -24,7 +25,7 @@ Entity* Spawner::SpawnEnemy(int x, int y)
 
 Entity* Spawner::SpawnChest(int x, int y)
 {
-	return new Entity();
+	return new Chest(x, y);
 }
 
 Entity* Spawner::SpawnDrop(int x, int y)

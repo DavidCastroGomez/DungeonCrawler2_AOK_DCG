@@ -1,6 +1,6 @@
 #include "Map.h"
 
-Map::Map(int numOfEnemies)
+Map::Map(int numOfEnemiesAndChests)
 {
 	spawnerMutex = new std::mutex();
 
@@ -25,14 +25,37 @@ Map::Map(int numOfEnemies)
 	}
 
 	srand(time(NULL));
-	for (int i = 0; i < numOfEnemies; i++) {
-		Entity* e = spawner.SpawnEnemy((rand() % (MAP_COLS - 2)) + 1, (rand() % (MAP_ROWS - 2)) + 1);
-		grid[e->getX()][e->getY()] = e;
+	for (int i = 0; i < numOfEnemiesAndChests; i++) {
+		SpawnRandom();
 	}
 }
 
 void Map::SpawnRandom()
 {
+	Entity* e = new Entity();
+	int newSpawn = rand() % 4;
+
+	int x;
+	int y;
+	do {
+		x = (rand() % (MAP_COLS - 2)) + 1;
+		y = (rand() % (MAP_ROWS - 2)) + 1;
+	} while (grid[x][y]->getType() != EntityType::FLOOR);
+
+	switch (newSpawn)
+	{
+	case 0:
+	case 1:
+	case 2:
+		e = spawner.SpawnEnemy(x, y);
+		break;
+	case 3:
+		e = spawner.SpawnChest(x, y);
+		break;
+	default:
+		break;
+	}
+	grid[e->getX()][e->getY()] = e;
 }
 
 void Map::InsertToGrid(Entity* e)
@@ -40,28 +63,6 @@ void Map::InsertToGrid(Entity* e)
 	spawnerMutex->lock();
 	grid[e->getX()][e->getY()] = e;
 	spawnerMutex->unlock();
-}
-
-void Map::UpdateGrid(Entity* e)
-{
-	/*Entity* temp;
-
-	temp->x = grid at e->getX();
-	temp->y = grid at e->getY();
-
-	grid[e->getX()][e->getY()] = e;*/
-
-	grid[e->getX()][e->getY()] = e;
-	//TODO: make it so that after an element moves something is blank is painted behind it.
-	e->Draw();
-}
-
-void Map::UpdateGrid(int x, int y)
-{
-	Entity* e = grid[x][y];
-
-	//TODO: make it so that after an element moves something is blank is painted behind it.
-	e->Draw();
 }
 
 Entity* Map::getEntity(int x, int y)

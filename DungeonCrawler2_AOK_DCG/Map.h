@@ -25,13 +25,10 @@ public:
 
 	Spawner spawner;
 
-	Map(int numOfEnemies);
+	Map(int numOfEnemiesAndChests);
 
 	void SpawnRandom();
 	void InsertToGrid(Entity* e);
-
-	void UpdateGrid(Entity* e);
-	void UpdateGrid(int x, int y);
 
 	Entity* getEntity(int, int);
 
