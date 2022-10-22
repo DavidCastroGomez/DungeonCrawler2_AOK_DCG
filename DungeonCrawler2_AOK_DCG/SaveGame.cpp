@@ -33,6 +33,14 @@ void SaveGame::SaveHero(Hero* hero)
     }
 }
 
+void SaveGame::EraseHero()
+{
+    int i = remove("Character.json");
+    if (i != 0) {
+        std::cout << "ERROR REMOVING Character.json";
+    }
+}
+
 Json::Value SaveGame::HeroToJsonValue(Hero* hero)
 {
     Json::Value jsonValue;

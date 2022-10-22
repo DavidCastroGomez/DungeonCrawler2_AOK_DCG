@@ -26,7 +26,15 @@ int main() {
 	worldMap->InitialDraw();
 
 
-	while (isPlaying) {
+	while (player->getHealth() > 0) {
 
 	}
+	delete worldMap;
+
+	savegame.EraseHero();
+
+	system("cls");
+	ConsoleControl::SetPosition(0, 0);
+	std::cout << "YOU LOSE";
+
 }

@@ -20,6 +20,8 @@ public:
 
 	void SaveHero(Hero* hero);
 
+	void EraseHero();
+
 	Json::Value HeroToJsonValue(Hero* hero);
 };
 

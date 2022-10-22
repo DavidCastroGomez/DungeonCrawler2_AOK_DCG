@@ -1,10 +1,10 @@
 {
 	"Character" : 
 	{
-		"health" : -7,
-		"money" : 1011,
-		"potions" : 9,
-		"x" : 20,
-		"y" : 4
+		"health" : 1,
+		"money" : 5,
+		"potions" : 2,
+		"x" : 4,
+		"y" : 5
 	}
 }
