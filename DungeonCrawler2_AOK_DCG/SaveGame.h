@@ -8,7 +8,7 @@
 class SaveGame
 {
 public:
-	void Save();
+	void SaveHero(Hero* hero);
 
 	Json::Value HeroToJsonValue(Hero* hero);
 };
