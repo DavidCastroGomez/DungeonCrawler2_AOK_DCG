@@ -24,7 +24,7 @@ public:
 	Character();
 
 	void Act();
-	void RecieveDamage(int damage);
+	virtual void RecieveDamage(int damage);
 
 	virtual void TryMove() = 0;
 	virtual void Move(int direction) = 0;	//Move uses collisions

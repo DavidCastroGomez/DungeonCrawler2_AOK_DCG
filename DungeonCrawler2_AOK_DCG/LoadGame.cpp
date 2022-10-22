@@ -19,6 +19,6 @@ Hero* LoadGame::LoadHero()
 		}
 	}
 
-	Hero* player = new Hero(5, 5, 1, 5, 2);
+	Hero* player = new Hero(5, 5, 3, 5, 2);
 	return player;
 }

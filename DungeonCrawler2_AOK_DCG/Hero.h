@@ -25,6 +25,9 @@ public:
 	void Attack(Entity* e) override;
 	void Die() override;
 
+	void RecieveDamage(int damage) override;
+	void Heal();
+
 	void PickUp(Entity* e);
 
 	int getHealth();

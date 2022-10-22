@@ -5,6 +5,10 @@
 #include "LoadGame.h"
 #include "SaveGame.h"
 
+void ChangeMap() {
+
+}
+
 int main() {
 	bool isPlaying = true;
 
@@ -27,7 +31,34 @@ int main() {
 
 
 	while (player->getHealth() > 0) {
+		if (Collisions::GetPortalEntered()) {
+			Portal* p = Collisions::GetPortal();
 
+			Entity* floor = worldMap->GetMap()->getSpawn().BuildFloor(player->getX(), player->getY());
+			worldMap->GetMap()->InsertToGrid(floor);
+
+			worldMap->ChangeMap(p);
+
+			if (p->getXDir() == 1) {
+				player->setPos(1, (MAP_ROWS - 1)/2);
+			}
+			if (p->getXDir() == -1) {
+				player->setPos(MAP_COLS - 2, (MAP_ROWS - 1) / 2);
+			}
+			if (p->getYDir() == 1) {
+				player->setPos((MAP_COLS - 1) / 2, MAP_ROWS - 2);
+			}
+			if (p->getYDir() == -1) {
+				player->setPos((MAP_COLS - 1) / 2, 1);
+			}
+
+			worldMap->GetMap()->InsertToGrid(player);
+
+			Collisions::SetPortal(nullptr);
+			Collisions::portalEntered = false;
+
+			worldMap->InitialDraw();
+		}
 	}
 	delete worldMap;
 

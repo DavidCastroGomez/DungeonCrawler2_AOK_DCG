@@ -21,9 +21,8 @@ Entity::Entity(int x, int y, char symb, EntityType t)
 }
 
 void Entity::Draw() {
-
-	ConsoleControl::SetPosition(x, y);
-	std::cout << symbol;
+	std::string s(1, symbol);
+	DrawClass::Draw(x, y, s);
 }
 
 int Entity::getX()

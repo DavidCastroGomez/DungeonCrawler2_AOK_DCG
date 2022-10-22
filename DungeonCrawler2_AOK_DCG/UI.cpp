@@ -8,10 +8,7 @@ void UI::setHero(Hero* h)
 
 void UI::printUI()
 {
-	ConsoleControl::SetPosition(UI_X, UI_Y);
-	std::cout << "Health: " << hero->getHealth();
-	ConsoleControl::SetPosition(UI_X, UI_Y + 1);
-	std::cout << "Money: " << hero->getMoney();
-	ConsoleControl::SetPosition(UI_X, UI_Y + 2);
-	std::cout << "Potions: " << hero->getPotions();
+	DrawClass::Draw(UI_X, UI_Y, "Health: " + std::to_string(hero->getHealth()));
+	DrawClass::Draw(UI_X, UI_Y + 1, "Money: " + std::to_string(hero->getMoney()));
+	DrawClass::Draw(UI_X, UI_Y + 2, "Potions: " + std::to_string(hero->getPotions()));
 }

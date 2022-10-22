@@ -83,8 +83,11 @@ void WorldMap::CreatePortals(Map* m)
 	
 }
 
-void WorldMap::ChangeMap(Entity*)
+void WorldMap::ChangeMap(Portal* p)
 {
+	currentMapX += p->getXDir();
+	currentMapY += p->getYDir();
+
 }
 
 void WorldMap::UpdateMap()

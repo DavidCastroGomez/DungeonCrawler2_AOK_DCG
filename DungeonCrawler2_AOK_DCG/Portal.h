@@ -8,5 +8,8 @@ private:
 
 public:
 	Portal(int x, int y, int xDir, int yDir);
+
+	int getXDir();
+	int getYDir();
 };
 

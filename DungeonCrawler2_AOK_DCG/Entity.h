@@ -2,7 +2,8 @@
 
 #include <iostream>
 #include "ConsoleControl.h"
-#include "Constants.h"	
+#include "Constants.h"
+#include "DrawClass.h"
 
 enum class EntityType {
 	UNDEFINED,

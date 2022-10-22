@@ -1,6 +1,8 @@
 #include "Collisions.h"
 
 Map* Collisions::map;
+Portal* Collisions::portal;
+bool Collisions::portalEntered = false;
 std::mutex* Collisions::moveMutex = new std::mutex();
 
 void Collisions::SetMap(Map* m)
@@ -63,6 +65,23 @@ void Collisions::NewDrop(int x, int y)
 	Entity* drop = map->spawner.SpawnDrop(x, y);
 	map->InsertToGrid(drop);
 	drop->Draw();
+}
+
+void Collisions::SetPortal(Portal* p)
+{
+	portalEntered = true;
+	portal = p;
+
+}
+
+Portal* Collisions::GetPortal()
+{
+	return portal;
+}
+
+bool Collisions::GetPortalEntered()
+{
+	return portalEntered;
 }
 
 

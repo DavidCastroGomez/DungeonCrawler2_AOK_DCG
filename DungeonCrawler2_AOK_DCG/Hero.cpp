@@ -62,10 +62,15 @@ void Hero::TryMove()
 			break;
 		case EntityType::PORTAL:
 			//TODO portal call to change map
+			Portal* portal = (Portal*)e;
+			Collisions::SetPortal(portal);
 			break;
 		}
 	}
 
+	if (keyCode == KB_SPACE) {
+		Heal();
+	}
 }
 
 void Hero::Move(int direction) {
@@ -100,6 +105,29 @@ void Hero::Attack(Entity* e) {
 
 void Hero::Die() {
 
+}
+
+void Hero::RecieveDamage(int damage)
+{
+	actionMutex->lock();
+	health -= damage;
+	actionMutex->unlock();
+
+	if (health <= 0) {
+		Die();
+	}
+	actionMutex->lock();
+	UI::printUI();
+	actionMutex->unlock();
+}
+
+void Hero::Heal()
+{
+	if (this->potions >= 1) {
+		this->health++;
+		this->potions--;
+	}
+	UI::printUI();
 }
 
 void Hero::PickUp(Entity* e) {

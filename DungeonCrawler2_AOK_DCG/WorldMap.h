@@ -15,7 +15,7 @@ public:
 	void InitialDraw();
 	void CreatePortals(Map* m);
 
-	void ChangeMap(Entity*);
+	void ChangeMap(Portal* p);
 	void UpdateMap();
 	Map* GetMap();
 
