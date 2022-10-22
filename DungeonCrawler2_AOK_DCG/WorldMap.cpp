@@ -10,15 +10,15 @@ WorldMap::WorldMap()
 	currentMapX = 1;
 	currentMapY = 1;	
 
-	Map* map0 = new Map(1);
-	Map* map1 = new Map(1);
-	Map* map2 = new Map(1);
-	Map* map3 = new Map(1);
+	Map* map0 = new Map(3);
+	Map* map1 = new Map(2);
+	Map* map2 = new Map(4);
+	Map* map3 = new Map(2);
 	Map* map4 = new Map(5);
-	Map* map5 = new Map(1);
-	Map* map6 = new Map(1);
-	Map* map7 = new Map(1);
-	Map* map8 = new Map(1);
+	Map* map5 = new Map(3);
+	Map* map6 = new Map(5);
+	Map* map7 = new Map(6);
+	Map* map8 = new Map(3);
 
 	this->AddMap(map4, 1, 1);
 
@@ -86,8 +86,7 @@ void WorldMap::CreatePortals(Map* m)
 void WorldMap::ChangeMap(Portal* p)
 {
 	currentMapX += p->getXDir();
-	currentMapY += p->getYDir();
-
+	currentMapY += p->getYDir();	
 }
 
 void WorldMap::UpdateMap()

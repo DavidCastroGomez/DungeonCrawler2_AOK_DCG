@@ -39,18 +39,21 @@ int main() {
 
 			worldMap->ChangeMap(p);
 
+			Collisions::SetMap(worldMap->GetMap());
+
 			if (p->getXDir() == 1) {
 				player->setPos(1, (MAP_ROWS - 1)/2);
 			}
-			if (p->getXDir() == -1) {
+			else if (p->getXDir() == -1) {
 				player->setPos(MAP_COLS - 2, (MAP_ROWS - 1) / 2);
 			}
-			if (p->getYDir() == 1) {
+			else if (p->getYDir() == 1) {
 				player->setPos((MAP_COLS - 1) / 2, MAP_ROWS - 2);
 			}
-			if (p->getYDir() == -1) {
+			else if (p->getYDir() == -1) {
 				player->setPos((MAP_COLS - 1) / 2, 1);
 			}
+
 
 			worldMap->GetMap()->InsertToGrid(player);
 
@@ -60,6 +63,7 @@ int main() {
 			worldMap->InitialDraw();
 		}
 	}
+
 	delete worldMap;
 
 	savegame.EraseHero();
