@@ -25,7 +25,7 @@ public:
 
 	Spawner spawner;
 
-	Map();
+	Map(int numOfEnemies);
 
 	void SpawnRandom();
 	void InsertToGrid(Entity* e);

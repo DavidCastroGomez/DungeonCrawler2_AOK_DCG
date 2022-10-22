@@ -10,15 +10,15 @@ WorldMap::WorldMap()
 	currentMapX = 1;
 	currentMapY = 1;	
 
-	Map* map0 = new Map();
-	Map* map1 = new Map();
-	Map* map2 = new Map();
-	Map* map3 = new Map();
-	Map* map4 = new Map();
-	Map* map5 = new Map();
-	Map* map6 = new Map();
-	Map* map7 = new Map();
-	Map* map8 = new Map();
+	Map* map0 = new Map(1);
+	Map* map1 = new Map(1);
+	Map* map2 = new Map(1);
+	Map* map3 = new Map(1);
+	Map* map4 = new Map(5);
+	Map* map5 = new Map(1);
+	Map* map6 = new Map(1);
+	Map* map7 = new Map(1);
+	Map* map8 = new Map(1);
 
 	this->AddMap(map4, 1, 1);
 

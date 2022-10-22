@@ -3,14 +3,16 @@ Hero::Hero(int x, int y, int health, int money, int potions) : Character() {
 	this->x = x;
 	this->y = y;
 	this->symbol = 'H';
+	this->type = EntityType::HERO;
 
-	this->moveTime = 500;
+	this->moveTime = HERO_MOVE_TIME;
 	this->health = health;
 
 	this->money = money;
 	this->potions = potions;
 
-	//this->weapon = Weapon();
+	this->damage = HERO_DAMAGE;
+	
 
 	this->inputs = new InputManager();
 	this->inputThread = new std::thread(&InputManager::StartListener, inputs);
@@ -23,7 +25,8 @@ void Hero::TryMove()
 
 	//TODO CHANGE THIS
 	if (keyCode == KB_UP || keyCode == KB_DOWN || keyCode == KB_LEFT || keyCode == KB_RIGHT) {
-		Entity* e = Collisions::CheckIfCanMove(x, y, keyCode);	//X AND Y ARENT THE DESTINATION
+		
+		Entity* e = Collisions::CheckIfCanMove(x, y, keyCode);
 
 		switch (e->getType()) {
 		case EntityType::WALL:
@@ -35,7 +38,7 @@ void Hero::TryMove()
 			break;
 		case EntityType::ENEMY:
 		case EntityType::CHEST:
-			Attack();
+			Attack(e);
 			break;	
 		case EntityType::PORTAL:
 			//TODO portal call to change map
@@ -46,8 +49,8 @@ void Hero::TryMove()
 }
 
 void Hero::Move(int direction) {
-	int lastx = x;
-	int lasty = y;
+	int lastx = this->x;
+	int lasty = this->y;
 
 	switch (direction)
 	{
@@ -67,11 +70,12 @@ void Hero::Move(int direction) {
 		break;
 	}
 
-	Collisions::MoveCharacter(lastx, lasty, x, y);
+	Collisions::MoveCharacter(lastx, lasty);
 }
 
-void Hero::Attack() {
-
+void Hero::Attack(Entity* e) {
+	Character* character = (Character*)e;
+	character->RecieveDamage(damage);
 }
 
 void Hero::Die() {

@@ -5,7 +5,6 @@
 #include "Collisions.h"
 
 #include <thread>
-#include <chrono>
 #include <mutex>
 
 class Character :
@@ -15,6 +14,7 @@ protected:
 	int health;
 	int moveTime;
 	bool isTired;
+	int damage;
 
 	std::thread* actionThread;
 	std::mutex* actionMutex;
@@ -26,10 +26,10 @@ public:
 
 	virtual void TryMove() = 0;
 	virtual void Move(int direction) = 0;	//Move uses collisions
-	virtual void Attack() = 0;	//Attack uses collisions
+	virtual void Attack(Entity* e) = 0;	//Attack uses collisions
 	virtual void Die() = 0;
 
-	virtual void PickUp() = 0;	//PickUp uses collisions
+
 
 };
 

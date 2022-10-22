@@ -3,8 +3,6 @@
 #include "InputManager.h"
 //#include "Weapon.h"
 
-#include <thread>
-
 class Hero : public Character
 {
 private:
@@ -19,9 +17,9 @@ public:
 
 	void TryMove() override;
 	void Move(int direction) override;
-	void Attack() override;
+	void Attack(Entity* e) override;
 	void Die() override;
 
-	void PickUp() override;
+	void PickUp();
 };
 

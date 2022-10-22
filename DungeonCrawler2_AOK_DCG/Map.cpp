@@ -1,7 +1,9 @@
 #include "Map.h"
 
-Map::Map()
+Map::Map(int numOfEnemies)
 {
+	spawnerMutex = new std::mutex();
+
 	for (int i = 0; i < MAP_COLS; i++) {
 
 		std::vector<Entity*> dimension;
@@ -22,7 +24,11 @@ Map::Map()
 		grid.push_back(dimension);
 	}
 
-
+	srand(time(NULL));
+	for (int i = 0; i < numOfEnemies; i++) {
+		Entity* e = spawner.SpawnEnemy((rand() % (MAP_COLS - 2)) + 1, (rand() % (MAP_ROWS - 2)) + 1);
+		grid[e->getX()][e->getY()] = e;
+	}
 }
 
 void Map::SpawnRandom()
@@ -31,7 +37,9 @@ void Map::SpawnRandom()
 
 void Map::InsertToGrid(Entity* e)
 {
+	spawnerMutex->lock();
 	grid[e->getX()][e->getY()] = e;
+	spawnerMutex->unlock();
 }
 
 void Map::UpdateGrid(Entity* e)

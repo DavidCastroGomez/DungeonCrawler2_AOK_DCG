@@ -2,14 +2,15 @@
 #include "Character.h"
 class Enemy : public Character
 {
-private:
-	int damage;
 
 public:
-	Enemy();
+	Enemy(int x, int y);
+	~Enemy();
 	
+	void TryMove() override;
 	void Move(int direction) override;
-	void Attack() override;
+	void Attack(Entity* e) override;
 	void Die() override;
+
 };
 

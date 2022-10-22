@@ -15,25 +15,33 @@ Character::Character() : Entity()
 
 void Character::Act()
 {
-	//actionMutex->lock();
-	////isTired = true;
-	//actionMutex->unlock();
-	//ConsoleControl::Wait(moveTime);
-	//actionMutex->lock();
-	////isTired = false;
-	//TryMove();
-	//actionMutex->unlock();
+	while (true) {
+		actionMutex->lock();
+		isTired = true;
+		actionMutex->unlock();
 
-	ConsoleControl::Wait(moveTime);
-	TryMove();
+		ConsoleControl::Wait(moveTime);
+
+		actionMutex->lock();
+		isTired = false;
+		actionMutex->unlock();
+
+		if (!isTired) {
+			TryMove();
+		}
+	}
 }
 
 void Character::RecieveDamage(int damage)
 {
+	actionMutex->lock();
 	health -= damage;
+	actionMutex->unlock();
+
 	if (health <= 0) {
 		Die();
 	}
+
 }
 
 

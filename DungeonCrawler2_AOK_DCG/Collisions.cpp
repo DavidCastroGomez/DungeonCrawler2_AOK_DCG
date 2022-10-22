@@ -36,19 +36,30 @@ Entity* Collisions::CheckIfCanMove(int x, int y, int direction)
 	return desiredPosition;
 }
 
-void Collisions::MoveCharacter(int lastX, int lastY, int x, int y)
+void Collisions::MoveCharacter(int lastX, int lastY)
 {
 	//TODO put mutex here
-	Entity* e = map->getEntity(x, y);
+
+	Entity* e = map->getEntity(lastX, lastY);
 	Entity* floor = map->spawner.BuildFloor(lastX, lastY);
 
 	map->InsertToGrid(floor);
-	map->InsertToGrid(e);
-
-	e->Draw();
 	floor->Draw();
+
+	;
+	map->InsertToGrid(e);
+	e->Draw();
+
+	
 	//and here
 	
+}
+
+void Collisions::RemoveEntity(int x, int y)
+{
+	Entity* floor = map->spawner.BuildFloor(x, y);
+	map->InsertToGrid(floor);
+	floor->Draw();	
 }
 
 
