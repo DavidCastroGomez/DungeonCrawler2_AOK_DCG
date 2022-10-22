@@ -7,7 +7,17 @@
 
 class SaveGame
 {
+private:
+	Hero* hero;
+
+	std::thread* saveGameThread;
+	std::mutex* saveGamemutex;
+
 public:
+	SaveGame(Hero* h);
+
+	void SaveLoop();
+
 	void SaveHero(Hero* hero);
 
 	Json::Value HeroToJsonValue(Hero* hero);

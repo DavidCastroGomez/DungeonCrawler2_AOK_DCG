@@ -1,5 +1,23 @@
 #include "SaveGame.h"
 
+SaveGame::SaveGame(Hero* h)
+{
+    this->hero = h;
+
+    saveGameThread = new std::thread(&SaveGame::SaveLoop, this);
+    saveGamemutex = new std::mutex();
+}
+
+void SaveGame::SaveLoop()
+{
+    while (true) {
+        ConsoleControl::Wait(5000);
+        saveGamemutex->lock();
+        SaveHero(hero);
+        saveGamemutex->unlock();
+    }
+}
+
 void SaveGame::SaveHero(Hero* hero)
 {
 

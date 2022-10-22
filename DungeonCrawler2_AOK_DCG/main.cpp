@@ -6,15 +6,17 @@
 #include "SaveGame.h"
 
 int main() {
-	bool isPlaying = false;
+	bool isPlaying = true;
 
 	WorldMap* worldMap = new WorldMap();
 	Collisions::SetMap(worldMap->GetMap());
 
 	LoadGame loadgame;
-	SaveGame savegame;
+
 
 	Hero* player = loadgame.LoadHero();
+
+	SaveGame savegame(player);
 
 	UI::setHero(player);
 	UI::printUI();
