@@ -18,6 +18,8 @@ public:
 	Hero();
 	Hero(int x, int y, int health, int money, int potions);
 
+	void HeroLoaded();
+
 	void TryMove() override;
 	void Move(int direction) override;
 	void Attack(Entity* e) override;

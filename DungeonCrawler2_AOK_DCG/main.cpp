@@ -6,12 +6,15 @@
 #include "SaveGame.h"
 
 int main() {
-	bool isPlaying = true;
+	bool isPlaying = false;
 
 	WorldMap* worldMap = new WorldMap();
 	Collisions::SetMap(worldMap->GetMap());
 
-	Hero* player = new Hero(5, 5, 10, 5, 2);
+	LoadGame loadgame;
+	SaveGame savegame;
+
+	Hero* player = loadgame.LoadHero();
 
 	UI::setHero(player);
 	UI::printUI();
@@ -19,6 +22,8 @@ int main() {
 	worldMap->GetMap()->InsertToGrid(player);
 
 	worldMap->InitialDraw();
+
+
 	while (isPlaying) {
 
 	}

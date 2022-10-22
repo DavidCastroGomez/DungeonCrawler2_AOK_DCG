@@ -25,6 +25,19 @@ Hero::Hero(int x, int y, int health, int money, int potions) : Character() {
 	inputThread->detach();
 }
 
+void Hero::HeroLoaded()
+{
+	this->symbol = 'H';
+	this->type = EntityType::HERO;
+	this->moveTime = HERO_MOVE_TIME;
+	this->damage = HERO_DAMAGE;
+
+
+	this->inputs = new InputManager();
+	this->inputThread = new std::thread(&InputManager::StartListener, inputs);
+	inputThread->detach();
+}
+
 void Hero::TryMove()
 {
 	int keyCode = inputs->LastInput();

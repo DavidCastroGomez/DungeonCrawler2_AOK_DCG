@@ -11,15 +11,14 @@ Hero* LoadGame::LoadHero()
 
         //Character* newChar = Character::Parse(jsonValue); //Llamamos a la funcion estatica que nos sirve para crear un objeto a partir de un JsonValue
         Hero* hero = Hero::Parse(jsonValue["Character"]); //Llamamos a la funcion estatica que nos sirve para crear un objeto a partir de un JsonValue
+        hero->HeroLoaded();
 
         if (hero != nullptr) //La funcion anterior devolvera un nullptr si ha fallado por algo
         {
             return hero;
         }
-        else 
-        {
-            Hero* player = new Hero(5, 5, 10, 5, 2);
-            return player;
-        }
     }
+
+    Hero* player = new Hero(5, 5, 10, 5, 2);
+    return player;
 }

@@ -1,0 +1,10 @@
+{
+	"Character" : 
+	{
+		"health" : 10,
+		"money" : 999,
+		"potions" : 2,
+		"x" : 5,
+		"y" : 5
+	}
+}
