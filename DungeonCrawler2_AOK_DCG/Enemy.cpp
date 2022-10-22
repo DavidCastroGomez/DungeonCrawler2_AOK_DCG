@@ -9,7 +9,7 @@ Enemy::Enemy(int x, int y) : Character() {
 	this->health = ENEMY_HEALTH;
 
 	this->damage = ENEMY_DAMAGE;
-	
+
 }
 
 Enemy::~Enemy()
@@ -20,10 +20,50 @@ Enemy::~Enemy()
 
 void Enemy::TryMove()
 {
+	
+	int keyCode = rand() % 4;
+
+	Entity* e = Collisions::CheckIfCanMove(x, y, keyCode);
+
+	switch (e->getType()) {
+	case EntityType::FLOOR:
+		Move(keyCode);
+		break;
+	case EntityType::PORTAL:
+	case EntityType::CHEST:
+	case EntityType::WALL:
+	case EntityType::DROP:
+		break;
+	case EntityType::HERO:
+		Attack(e);
+		break;
+	}
 }
 
-void Enemy::Move(int direction) {
 
+void Enemy::Move(int direction) {
+	int lastx = this->x;
+	int lasty = this->y;
+
+	switch (direction)
+	{
+	case 0:
+		this->y -= 1;
+		break;
+	case 2:
+		this->y += 1;
+		break;
+	case 3:
+		this->x -= 1;
+		break;
+	case 1:
+		this->x += 1;
+		break;
+	default:
+		break;
+	}
+
+	Collisions::MoveCharacter(lastx, lasty);
 }
 
 void Enemy::Attack(Entity* e) {

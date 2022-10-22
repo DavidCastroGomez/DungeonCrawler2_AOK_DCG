@@ -11,6 +11,8 @@ Character::Character() : Entity()
 	this->actionThread = new std::thread(&Character::Act, this);
 	this->actionMutex = new std::mutex();
 
+	this->movementSeed = (int)&health;
+
 	actionThread->detach();
 }
 
@@ -28,7 +30,9 @@ void Character::Act()
 		actionMutex->unlock();
 
 		if (!isTired) {
+			actionMutex->lock();
 			TryMove();
+			actionMutex->unlock();
 		}
 	}
 }

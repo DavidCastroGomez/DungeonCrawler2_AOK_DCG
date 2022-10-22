@@ -16,6 +16,8 @@ protected:
 	bool isTired;
 	int damage;
 
+	int movementSeed;
+
 	std::thread* actionThread;
 	std::mutex* actionMutex;
 public:

@@ -1,6 +1,7 @@
 #include "Collisions.h"
 
 Map* Collisions::map;
+std::mutex* Collisions::moveMutex = new std::mutex();
 
 void Collisions::SetMap(Map* m)
 {
@@ -9,8 +10,10 @@ void Collisions::SetMap(Map* m)
 
 Entity* Collisions::CheckIfCanMove(int x, int y, int direction)
 {
+	
 	Entity* desiredPosition = map->getEntity(x, y);
 
+	moveMutex->lock();
 	switch (direction)
 	{
 	case 0:
@@ -32,27 +35,20 @@ Entity* Collisions::CheckIfCanMove(int x, int y, int direction)
 	default:
 		break;
 	}
-
+	moveMutex->unlock();
 	return desiredPosition;
 }
 
 void Collisions::MoveCharacter(int lastX, int lastY)
 {
-	//TODO put mutex here
-
+	moveMutex->lock();
 	Entity* e = map->getEntity(lastX, lastY);
 	Entity* floor = map->spawner.BuildFloor(lastX, lastY);
-
 	map->InsertToGrid(floor);
 	floor->Draw();
-
-	;
 	map->InsertToGrid(e);
 	e->Draw();
-
-	
-	//and here
-	
+	moveMutex->unlock();
 }
 
 void Collisions::RemoveEntity(int x, int y)

@@ -5,6 +5,7 @@ static class Collisions
 {
 private:
 	static Map* map;
+	static std::mutex* moveMutex;
 
 public:
 	

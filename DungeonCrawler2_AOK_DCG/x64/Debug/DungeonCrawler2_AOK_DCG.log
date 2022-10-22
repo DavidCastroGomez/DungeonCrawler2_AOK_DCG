@@ -1,4 +1,4 @@
-﻿  SaveGame.cpp
+﻿  Enemy.cpp
 C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\ConsoleControl.h(45,2): warning C4091: 'static ': se ha omitido a la izquierda de 'ConsoleControl' cuando no hay ninguna variable declarada
-C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Collisions.h(16,2): warning C4091: 'static ': se ha omitido a la izquierda de 'Collisions' cuando no hay ninguna variable declarada
+C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\DungeonCrawler2_AOK_DCG\Collisions.h(17,2): warning C4091: 'static ': se ha omitido a la izquierda de 'Collisions' cuando no hay ninguna variable declarada
   DungeonCrawler2_AOK_DCG.vcxproj -> C:\Users\davi_\source\repos\DungeonCrawler2_AOK_DCG\x64\Debug\DungeonCrawler2_AOK_DCG.exe
